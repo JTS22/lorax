@@ -185,6 +185,7 @@ def test_causal_lm_generate_token(default_causal_lm, causal_lm_batch, generated_
     assert all([generation.token_text == default_causal_lm.tokenizer.decode(generated_token_id) for generation in
                 generations])
     assert generations[0].request_id == 0
+    assert all([len(generation.alternative_tokens) == 3 for generation in generations])
 
 
 def test_causal_lm_generate_token_completion(

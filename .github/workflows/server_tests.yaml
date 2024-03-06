@@ -1,11 +1,9 @@
 name: Server Tests
 
 on:
-  pull_request:
-    paths:
-      - ".github/workflows/server_tests.yaml"
-      - "server/**"
-      - "proto/**"
+  push:
+    branches:
+      - server-test
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
